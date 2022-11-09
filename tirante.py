@@ -1,6 +1,5 @@
-# Pruebas en python con import funciones y variables
-# Carlos Camacho Soto
-# Fecha: julio 2022
+# Programas varios de cálculos hidráulicos
+# Fecha: noviembre 2022
 
 #! /usr/bin/env python
 """
@@ -11,23 +10,6 @@
 """
 import math
 import sys
-
-print("Determinar si es canal abierto o presión")
-print("---")
-d= float(input("Diámetro [mm]  : "))/1000
-l= float(input("Longitud [m]   : "))
-c1=float(input("Cota inicio [m]: "))
-c2=float(input("Cota final [m] : "))
-n= float(input("n de manning []: "))
-q= float(input("Caudal [l/S]   : "))/1000
-print("---")
-a= math.pi * (d)**2 / 4
-p= math.pi * d
-r = a / p
-h= c1 - c2
-s = h / l
-
-qmax= 1 / n * a * math.pow(r, (2/3)) * math.pow(s,(1/2))  
 
 def calcula_theta():
   li = 0
@@ -50,16 +32,50 @@ def calcula_theta():
       print(f"{m:7.4} {f:7.4f} {dif:7.4f} {it}")
   return m
 
-print(f"Caudal máximo:{qmax*1000:7.4f} [l/s]")
-if qmax < (q):
-   print("El tubo funciona a presión")
-else:
-   print("El tubo está a canal abierto...")
-   print("Calculando tirante...")
+def uso():
+    print("Cálculo de tirante en tubo simple")
+    print("---------------------------------")
+    print("python3 tirante D L Zi Zf n Q")
+    print("")
+    print("D es el diámetro de la tubería en [mm]")
+    print("L es la longitud de la tubería en [m]")
+    print("Zi es la cota topográfica inicial de la tubería en [m] ")
+    print("Zf es la cota topográfica final de la tubería en [m] ")
+    print("n valor de la n de manning para pérdidas [adim] ")
+    print("Q caudal que fluye en la tubería en [l/s]")
+    return
+
+if len(sys.argv) < 2 :   #cuando solo se escribe mgh, imprime el modo de uso y termina
+   uso()
+   sys.exit()
+else:     
+   print("Determinar si es canal abierto o presión")
    print("---")
-   theta = calcula_theta() 
-   y = d/2 * ( 1 - math.cos(theta/2))
-   print(f"Tirante: {y*1000:7.4f} [mm]")
+   d= float(sys.argv[1])/1000.0
+   l= float(sys.argv[2])
+   c1=float(sys.argv[3])
+   c2=float(sys.argv[4])
+   n= float(sys.argv[5])
+   q= float(sys.argv[6])/1000.0
+   print("---")
+   a= math.pi * (d)**2 / 4
+   p= math.pi * d
+   r = a / p
+   h= c1 - c2
+   s = h / l
+
+   qmax= 1 / n * a * math.pow(r, (2/3)) * math.pow(s,(1/2))  
+
+   print(f"Caudal máximo:{qmax*1000:7.4f} [l/s]")
+   if qmax < (q):
+      print("El tubo funciona a presión")
+   else:
+      print("El tubo está a canal abierto...")
+      print("Calculando tirante...")
+      print("---")
+      theta = calcula_theta() 
+      y = d/2 * ( 1 - math.cos(theta/2))
+      print(f"Tirante: {y*1000:7.4f} [mm]")
 
 
 #EOF
