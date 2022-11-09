@@ -76,7 +76,7 @@ else:
    vi=float(sys.argv[3])
    q= float(sys.argv[4])/1000.0
    ec=sys.argv[5]
-   t= 1.0e-6 
+   t= 1.0e-8 
    a= area(d)
    v=ve(q,a)
    r=reynolds(v,d,vi)
