@@ -45,6 +45,9 @@ def uso():
     print("n valor de la n de manning para pérdidas [adim] ")
     print("Q caudal que fluye en la tubería en [l/s]")
     print("")
+    print("ejemplo con D=100mm, L=500m, Zi=120m, Zf=70m, n=0.009, Q=15l/s")
+    print("# python3 tirante.py 100 500 120 70 0.009 15")
+    print("")
     return
 
 if len(sys.argv) < 2 :   #cuando solo se escribe mgh, imprime el modo de uso y termina
