@@ -42,7 +42,7 @@ def fCW(k, d, R, tol, ec): # parámetros de entrada ks/D, Re, t
          dif=abs(f1-f)
          f1=f
          it=it+1
-         print(f"Iteracion:{it}   factor: {f:8.6f}")
+         print(f"Iteracion:{it}   factor: {f}")
    else:
       f=f1
    return f
