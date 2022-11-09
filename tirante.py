@@ -33,6 +33,7 @@ def calcula_theta():
   return m
 
 def uso():
+    print("")
     print("Cálculo de tirante en tubo simple")
     print("---------------------------------")
     print("python3 tirante D L Zi Zf n Q")
@@ -43,6 +44,7 @@ def uso():
     print("Zf es la cota topográfica final de la tubería en [m] ")
     print("n valor de la n de manning para pérdidas [adim] ")
     print("Q caudal que fluye en la tubería en [l/s]")
+    print("")
     return
 
 if len(sys.argv) < 2 :   #cuando solo se escribe mgh, imprime el modo de uso y termina
