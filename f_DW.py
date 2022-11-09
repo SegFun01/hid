@@ -60,7 +60,7 @@ def uso():
     print("Q caudal que fluye en la tubería en [l/s]")
     print("ec ecuación a usar: C=Colebrook-White, S=Swamee-Jain [C/S] ")
     print("")
-    print("ejemplo con D=100mm, Ks=0.0015mm vi=1.007e-6 m2/s, Q=15l/s Ecuación=Colebrook-White")
+    print("ejemplo con D=100mm, Ks=0.0015mm vi=1.007e-6 m2/s, Q=15l/s Ecuación=C")
     print("# python3 f_DW.py 100 0.0015 1.007E-6 15 C")
     print("")
     return
