@@ -27,6 +27,7 @@ def reynolds(v,d,vis):
 
 def fCW(k, d, R, tol, ec): # parámetros de entrada ks/D, Re, t
    # primero se calcula f por S-W
+   it=0
    Re = pow(abs(R),0.9)
    f1 = 0.25 / ( math.log10(k/d/3.7 + 5.74/Re)**2)
    # print(f"f según Swamee-Jain: {f1:8.6f}")
