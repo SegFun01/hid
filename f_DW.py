@@ -30,7 +30,7 @@ def fCW(k, d, R, tol, ec): # parámetros de entrada ks/D, Re, t
    it=0
    Re = pow(abs(R),0.9)
    f1 = 0.25 / ( math.log10(k/d/3.7 + 5.74/Re)**2)
-   # print(f"f según Swamee-Jain: {f1:8.6f}")
+   # print(f"f según Swamee-Jain: {f1:10.9f}")
    if ec=="C":
       # Calcular el factor de f por Colebrook-White
       f1= 0.01
@@ -54,11 +54,11 @@ def uso():
     print("---------------------------------")
     print("python3 f_DW D Ks vi Q ec")
     print("")
-    print("D es el diámetro de la tubería en [mm]")
-    print("Ks es la rugosidad equivalente del material de la tubería en [mm]")
-    print("vi es la viscosidad del fluido en [m2/s]")
-    print("Q caudal que fluye en la tubería en [l/s]")
-    print("ec ecuación a usar: C=Colebrook-White, S=Swamee-Jain [C/S] ")
+    print("D  : diámetro de la tubería en [mm]")
+    print("Ks : rugosidad equivalente del material de la tubería en [mm]")
+    print("vi : viscosidad del fluido en [m2/s]")
+    print("Q  : caudal que fluye en la tubería en [l/s]")
+    print("ec : ecuación: C=Colebrook-White, S=Swamee-Jain [C/S] ")
     print("")
     print("ejemplo con D=100mm, Ks=0.0015mm vi=1.007e-6 m2/s, Q=15l/s Ecuación=C")
     print("# python3 f_DW.py 100 0.0015 1.007E-6 15 C")
